@@ -7,7 +7,7 @@ return {
 	},
 	config = function()
 		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
+		local lspconfig = vim.lsp
 
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -86,7 +86,7 @@ return {
 		end
 
 		-- configure python server
-		lspconfig["pylsp"].setup({
+		lspconfig.config("pylsp", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = {
@@ -106,7 +106,7 @@ return {
 		})
 
 		-- configure ruff linter/lsp
-		lspconfig["ruff"].setup({
+		lspconfig.config("ruff", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			commands = {
@@ -136,19 +136,19 @@ return {
 		})
 
 		-- configure clangd server
-		lspconfig["clangd"].setup({
+		lspconfig.config("clangd", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure bashls server
-		lspconfig["bashls"].setup({
+		lspconfig.config("bashls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
+		lspconfig.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
@@ -168,7 +168,7 @@ return {
 			},
 		})
 
-		lspconfig["tailwindcss"].setup({
+		lspconfig.config("tailwindcss", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
